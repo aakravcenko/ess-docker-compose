@@ -197,7 +197,7 @@ services:
 
   # mautrix-telegram Bridge
   mautrix-telegram:
-    image: ${TELEGRAM_IMAGE:-dock.mau.dev/mautrix/telegram:latest}
+    image: ${TELEGRAM_IMAGE:-ghcr.io/mautrix/telegram:latest}
     container_name: matrix-bridge-telegram
     restart: unless-stopped
     volumes:
@@ -210,7 +210,7 @@ services:
 
   # mautrix-whatsapp Bridge
   mautrix-whatsapp:
-    image: ${WHATSAPP_IMAGE:-dock.mau.dev/mautrix/whatsapp:latest}
+    image: ${WHATSAPP_IMAGE:-ghcr.io/mautrix/whatsapp:latest}
     container_name: matrix-bridge-whatsapp
     restart: unless-stopped
     volumes:
@@ -223,7 +223,7 @@ services:
 
   # mautrix-signal Bridge
   mautrix-signal:
-    image: ${SIGNAL_IMAGE:-dock.mau.dev/mautrix/signal:latest}
+    image: ${SIGNAL_IMAGE:-ghcr.io/mautrix/signal:latest}
     container_name: matrix-bridge-signal
     restart: unless-stopped
     volumes:

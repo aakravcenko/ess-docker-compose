@@ -145,7 +145,7 @@ services:
 
   # mautrix-telegram Bridge
   mautrix-telegram:
-    image: dock.mau.dev/mautrix/telegram:latest
+    image: ghcr.io/mautrix/telegram:latest
     container_name: matrix-bridge-telegram
     restart: unless-stopped
     volumes:
@@ -158,7 +158,7 @@ services:
 
   # mautrix-whatsapp Bridge
   mautrix-whatsapp:
-    image: dock.mau.dev/mautrix/whatsapp:latest
+    image: ghcr.io/mautrix/whatsapp:latest
     container_name: matrix-bridge-whatsapp
     restart: unless-stopped
     volumes:
@@ -171,7 +171,7 @@ services:
 
   # mautrix-signal Bridge
   mautrix-signal:
-    image: dock.mau.dev/mautrix/signal:latest
+    image: ghcr.io/mautrix/signal:latest
     container_name: matrix-bridge-signal
     restart: unless-stopped
     volumes:

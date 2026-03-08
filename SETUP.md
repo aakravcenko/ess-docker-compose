@@ -29,9 +29,9 @@ Key variables:
 | `ELEMENT_ADMIN_IMAGE` | Element Admin image (default: `oci.element.io/element-admin:latest`) |
 | `REDIS_IMAGE` | Redis image (default: `redis:7-alpine`) |
 | `MAS_IMAGE` | MAS image (default: `ghcr.io/element-hq/matrix-authentication-service:latest`) |
-| `TELEGRAM_IMAGE` | mautrix-telegram image (default: `dock.mau.dev/mautrix/telegram:latest`) |
-| `WHATSAPP_IMAGE` | mautrix-whatsapp image (default: `dock.mau.dev/mautrix/whatsapp:latest`) |
-| `SIGNAL_IMAGE` | mautrix-signal image (default: `dock.mau.dev/mautrix/signal:latest`) |
+| `TELEGRAM_IMAGE` | mautrix-telegram image (default: `ghcr.io/mautrix/telegram:latest`) |
+| `WHATSAPP_IMAGE` | mautrix-whatsapp image (default: `ghcr.io/mautrix/whatsapp:latest`) |
+| `SIGNAL_IMAGE` | mautrix-signal image (default: `ghcr.io/mautrix/signal:latest`) |
 | `LIVEKIT_IMAGE` | LiveKit image (default: `livekit/livekit-server:latest`) |
 | `LK_JWT_IMAGE` | lk-jwt-service image (default: `ghcr.io/element-hq/lk-jwt-service:latest`) |
 | `ELEMENT_CALL_IMAGE` | Element Call image (default: `ghcr.io/element-hq/element-call:latest`) |
