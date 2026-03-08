@@ -31,7 +31,6 @@ services:
     volumes:
       - ./synapse/data:/data
       - ./mas/certs:/certs:ro
-      - ./bridges:/bridges:ro
       - ./appservices:/appservices:ro
     # Ports exposed only to internal network - access via Caddy
     expose:
@@ -195,44 +194,6 @@ services:
       - mas
       # Note: Authelia dependency removed - works with or without Authelia
 
-  # mautrix-telegram Bridge
-  mautrix-telegram:
-    image: ${TELEGRAM_IMAGE:-ghcr.io/mautrix/telegram:latest}
-    container_name: matrix-bridge-telegram
-    restart: unless-stopped
-    volumes:
-      - ./bridges/telegram/config:/data
-    networks:
-      - matrix-network
-    depends_on:
-      synapse:
-        condition: service_healthy
-
-  # mautrix-whatsapp Bridge
-  mautrix-whatsapp:
-    image: ${WHATSAPP_IMAGE:-ghcr.io/mautrix/whatsapp:latest}
-    container_name: matrix-bridge-whatsapp
-    restart: unless-stopped
-    volumes:
-      - ./bridges/whatsapp/config:/data
-    networks:
-      - matrix-network
-    depends_on:
-      synapse:
-        condition: service_healthy
-
-  # mautrix-signal Bridge
-  mautrix-signal:
-    image: ${SIGNAL_IMAGE:-ghcr.io/mautrix/signal:latest}
-    container_name: matrix-bridge-signal
-    restart: unless-stopped
-    volumes:
-      - ./bridges/signal/config:/data
-    networks:
-      - matrix-network
-    depends_on:
-      synapse:
-        condition: service_healthy
 
 networks:
   matrix-network:

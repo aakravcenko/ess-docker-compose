@@ -143,44 +143,6 @@ services:
       - mas
       - authelia
 
-  # mautrix-telegram Bridge
-  mautrix-telegram:
-    image: ghcr.io/mautrix/telegram:latest
-    container_name: matrix-bridge-telegram
-    restart: unless-stopped
-    volumes:
-      - ./bridges/telegram/config:/data
-    networks:
-      - matrix-network
-    depends_on:
-      synapse:
-        condition: service_healthy
-
-  # mautrix-whatsapp Bridge
-  mautrix-whatsapp:
-    image: ghcr.io/mautrix/whatsapp:latest
-    container_name: matrix-bridge-whatsapp
-    restart: unless-stopped
-    volumes:
-      - ./bridges/whatsapp/config:/data
-    networks:
-      - matrix-network
-    depends_on:
-      synapse:
-        condition: service_healthy
-
-  # mautrix-signal Bridge
-  mautrix-signal:
-    image: ghcr.io/mautrix/signal:latest
-    container_name: matrix-bridge-signal
-    restart: unless-stopped
-    volumes:
-      - ./bridges/signal/config:/data
-    networks:
-      - matrix-network
-    depends_on:
-      synapse:
-        condition: service_healthy
 
 networks:
   matrix-network:

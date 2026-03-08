@@ -17,10 +17,6 @@ A self-hosted Matrix server stack with modern OIDC authentication, web client, o
 - [lk-jwt-service](https://github.com/element-hq/lk-jwt-service) — LiveKit token issuer
 - [Element Call](https://github.com/element-hq/element-call) — Self-hosted video/voice calling frontend
 
-**Optional: Messaging Bridges** (via `setup-bridges.sh`)
-- [mautrix-whatsapp](https://github.com/mautrix/whatsapp) — WhatsApp bridge
-- [mautrix-signal](https://github.com/mautrix/signal) — Signal bridge
-- [mautrix-telegram](https://github.com/mautrix/telegram) — Telegram bridge (requires API credentials)
 
 **Optional: Upstream OIDC** (`--profile authelia`)
 - [Authelia](https://www.authelia.com/) — SSO / identity provider with 2FA
@@ -41,11 +37,6 @@ Asks for: your domain, a Let's Encrypt email, and whether to enable Element Call
 ./deploy.sh
 ```
 
-Bridges are set up separately after the core stack is running:
-
-```bash
-./setup-bridges.sh
-```
 
 ## Architecture
 
@@ -98,16 +89,6 @@ Required open ports in addition to 80 and 443:
 - TCP 7881 (WebRTC signaling)
 - UDP 50100–50200 (media streams)
 
-## Bridges
-
-`setup-bridges.sh` configures WhatsApp and Signal automatically. Telegram requires API credentials from [my.telegram.org](https://my.telegram.org) — add them to `.env` before running:
-
-```
-TELEGRAM_API_ID=your_id
-TELEGRAM_API_HASH=your_hash
-```
-
-Bridges use double puppet support (messages appear from your actual Matrix user, not a bridge bot) and have encryption disabled for compatibility with MAS. See [BRIDGE_SETUP_GUIDE.md](BRIDGE_SETUP_GUIDE.md) for details.
 
 ## Air-gapped / Custom Registry
 
@@ -137,8 +118,6 @@ docker compose restart synapse
 # Update all images
 docker compose pull && docker compose up -d
 
-# Bridge logs
-docker compose logs mautrix-whatsapp
 ```
 
 ## Data Directories
@@ -159,7 +138,6 @@ tar -czf matrix-backup-$(date +%Y%m%d).tar.gz postgres/data synapse/data mas/dat
 
 - [SETUP.md](SETUP.md) — manual configuration reference
 - [PRODUCTION_DEPLOYMENT.md](PRODUCTION_DEPLOYMENT.md) — production checklist and hardening
-- [BRIDGE_SETUP_GUIDE.md](BRIDGE_SETUP_GUIDE.md) — bridge configuration details
 - [BUGFIXES.md](BUGFIXES.md) — known issues and their solutions
 - [QUICK_REFERENCE.md](QUICK_REFERENCE.md) — common commands
 
